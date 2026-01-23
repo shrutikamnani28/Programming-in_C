@@ -1,0 +1,19 @@
+Prog)Write a C program to calculate the area of a square by taking the side length as input.
+Code:
+#include <stdio.h>
+
+int main() { 
+	int side,area;
+
+	//Prompt and Input
+	printf("Side: ");
+	scanf("%d", &side);
+
+	//Calculate Area
+	area = side * side;
+
+	//Output
+	printf("Area of square: %d\n",area);
+
+	return 0;
+}
