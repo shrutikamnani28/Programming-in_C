@@ -1,0 +1,24 @@
+Prog) Write a C program to find the sum of positive and negative elements of a one - dimensional array.
+code:
+#include <stdio.h>
+int main() {
+	int n, i, num;
+	int posSum = 0, negSum = 0;
+
+
+	scanf("%d" , &n);
+
+	for(i = 0; i < n; i++) {
+		scanf("%d" , &num);
+		if(num > 0)
+			posSum += num;
+		else if (num < 0)
+			negSum += num;
+	}
+
+	printf("%d\n" , posSum);
+	printf("%d\n" , negSum);
+
+	return 0;
+
+}
