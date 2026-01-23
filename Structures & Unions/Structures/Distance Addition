@@ -1,0 +1,40 @@
+Prog) Write a C program that adds two distance measurements provided in feet and inches
+code:
+#include <stdio.h>
+
+struct Distance {
+     int feet;
+    float inches;
+
+} ;
+
+int main() {
+	struct Distance d1, d2, sum;
+	
+	// take first distance input
+	printf("Enter 1st distance \n");
+	printf("feet: ");
+	scanf("%d",&d1.feet);
+	printf("inch: ");
+	scanf("%f",&d1.inches);
+	
+	
+	// take second distance input
+	printf("Enter 2nd distance \n");
+	printf("feet: ");
+	scanf("%d",&d2.feet);
+	printf("inch: ");
+	scanf("%f",&d2.inches);
+	
+	// adding distances
+	sum.feet = d1.feet + d2.feet;
+	sum.inches = d1.inches + d2.inches;
+	
+	// convert inches to feet if greater than 12
+	if (sum.inches >= 12.0) {
+		sum.inches -= 12.0;
+		sum.feet += 1;
+	}
+	printf("Sum of distances = %d\'-%.1f\"", sum.feet, sum.inches    );
+	return 0;
+}
