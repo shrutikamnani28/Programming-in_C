@@ -1,0 +1,47 @@
+Prog) You are provided with an enum to track whether the union currently holds an integer or a floating-point number, as well as a union capable of storing either an int or a float. Write a C program that:
+code:
+#include <stdio.h>
+
+
+enum Type {
+    INTEGER,
+    FLOATING_POINT
+};
+
+// Union definition
+union Data {
+	int integer;
+	float floating_point;
+};
+struct Value {
+    enum Type type;
+    union Data data;
+};
+
+    int main() {
+	struct Value var1, var2;
+
+	scanf("%d", &var1.data.integer);
+	var1.type = INTEGER;
+
+    while (getchar() != '\n');
+
+	scanf("%f", &var2.data.floating_point);
+	var2.type = FLOATING_POINT;
+
+    if (var1.type == INTEGER)
+		printf("%d\n", var1.data.integer);
+	else
+		printf("%.1f\n", var1.data.floating_point);
+		
+
+    if (var2.type == INTEGER)
+		printf(" %d\n", var2.data.integer);
+	else
+		printf("%.1f\n",var2.data.floating_point);
+
+	return 0;
+}
+
+
+
