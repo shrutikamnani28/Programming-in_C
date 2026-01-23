@@ -1,0 +1,44 @@
+Prog) Write a C program to sort an array of strings based on their lengths using an array of pointers.
+code:
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define MAX_STRINGS 100
+#define MAX_LENGTH 100
+
+int main() {
+	int n;
+	char *strings[MAX_STRINGS]; // Array of pointers to strings
+	char inputString[MAX_LENGTH];
+
+
+	scanf("%d", &n);
+	getchar();
+
+	for (int i = 0; i < n; i++) {
+		fgets(inputString, MAX_LENGTH, stdin);
+		inputString[strcspn(inputString, "\n")] = '\0';
+    strings[i] = (char *)malloc(strlen(inputString) + 1);
+		strcpy(strings[i], inputString);
+	}
+
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = 0; j < n - i - 1; j++) {
+			if (strlen(strings[j]) > strlen(strings[j + 1])) {
+				char *temp = strings[j];
+				strings[j] = strings[j + 1];
+				strings[j + 1] = temp;
+			}
+		}
+	}
+    
+
+	for (int i = 0; i < n; i++) {
+		printf("%s\n", strings[i]);
+		free(strings[i]);
+	}
+    
+    
+	return 0;
+}
