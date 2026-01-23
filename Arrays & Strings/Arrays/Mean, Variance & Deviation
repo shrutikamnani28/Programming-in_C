@@ -1,0 +1,32 @@
+prog) Write a C program to store the numbers given by the user in an array, and then find the mean, deviation & variance.
+code:
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	int n;
+	printf("Enter the number of values: ");
+	scanf("%d", &n);
+
+	double values[n], sum = 0.0, mean, variance = 0.0, deviation;
+
+	printf("Enter values : ");
+	for (int i = 0; i < n; i++) {
+		scanf("%lf", &values[i]);
+		sum += values[i];
+	}
+	
+	mean = sum / n;
+
+	for (int i = 0; i < n; i++) {
+		variance += pow(values[i] - mean, 2);
+	}
+	variance /= n;
+	deviation = sqrt(variance);
+
+	printf("Mean = %.2lf\n", mean);
+	printf("Variance = %.2lf\n", variance);
+	printf("Deviation = %.2lf\n", deviation);
+
+	return 0;
+}
