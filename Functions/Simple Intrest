@@ -1,5 +1,6 @@
 Prog) Write a C program to calculate the simple interest 
 code:
+
 #include <stdio.h>
 int calculateSimpleInterest(int principal,int time,int rate       ) {
     return(principal * time * rate) /100;
